@@ -1,0 +1,28 @@
+NOTES (2 bytes) "miniNotes"
+  4 bits  Repeat #
+  4 bits  Sample #
+  8 bits  (only 6 bits needed) Note frequency (using half-steps)
+
+
+EFFECT (1-2 bytes)
+  4 bits  Repeat #
+  4 bits  Effect  (effect 0x8 indicates that no params follow)
+  8 bits  Params (1 & 2)
+
+
+* Full compliance
++ Partial compliance or pre-render
+= Implemented
+EFFECTS
+Effects [#][x][y]:
+  *[0]: "play note, note+x, note+y, repeat" (change once per tick) 3-7 is minor, 4-7 is major
+  *[1]: Decrease period by (x*16+y)*(ticks-1) (min. 113)
+  *[2]: Increase period by (x*16+y)*(ticks-1) (max. 856)
+  *[3]: Slide towards (but not past) new note by x*16+y per tick
+  *[5]: Continue [3] and volume slide by +x(ticks-1)-y*(ticks-1)
+  *[A]: Slide volume by +x*(ticks-1)-y*(ticks-1) (within 0..64)
+  *[C]: Set volume to 16*x+y (0..64)
+  *[E][A]: Immediate volume increase by y (max 64)
+  *[E][B]: Immediate volume decrease by y (min 0)
+  *[F]: Set ticks/division to (16*x+y)
+  (tick-1) effects take place at the beginning of each tick, except the first tick in a division

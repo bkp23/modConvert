@@ -1,0 +1,55 @@
+the-model
+Sample 1-4:
+ name: * * *  t d k  * * *
+ name: 22 overhill gardens
+ name: patcham, brighton
+ name: sussex, england
+Sample 5: (all named "chip" from here on out)
+ len: 0x09
+ vol: 0x11
+ rlen: 16
+Sample 6:
+ len: 0x09
+ vol: 0x20
+ rlen: 16
+Sample 7:
+ len: 0x12
+ vol: 0x40
+ rpos: 2
+ rlen: 64
+Sample 8:
+ len: 0x12
+ vol: 0x20
+ rpos: 2
+ rlen: 32
+
+Patterns: 2
+PSequence: 00, 01
+
+Pattern 0:
+first:
+ 1: 0x1280.0F0B    0x10 is sample, 0x280 is period, 0xF0B is effect
+ 2: 0x00D6.6EFF    0x06 is sample, 0x0D6 is period, 0xEFF is effect
+ 3: 0x0140.7EFF
+ 4: 0x0140.6037
+last:
+ 1: 0x10D6.0000    0x10 is sample, 0x0D6 is period, 0x000 os effect
+ 2: 0x00B4.6C40    0x06, 0x0B4. 0xC40
+ 3: 0x01AC.7602    0x07, 0x1AC, 0x602
+ 4: 0x01AC.6037    0x06, 0x1AC, 0x037
+
+Pattern 1:
+ 1: 0x121A.0000  0x10, 0x21A, 0x000
+ 2: 0x00D6.8A04  0x08, 0x0D6, 0xA04
+ 3: 0x021A.700C  0x07, 0x21A, 0x00C
+ 4: 0x0168.6059  0x06, 0x168, 0x059
+
+if 280 is F1 (43.65), then it's 30ksps (27,936)
+
+
+280 = F3 (174.61) 5.727ms
+12A = G#3(207.65) 4.816
+168 = D#4(311.13) 3.214ms
+140 = F4 (349.23) 2.863
+0D6 = C5 (523.25) 1.911
+
